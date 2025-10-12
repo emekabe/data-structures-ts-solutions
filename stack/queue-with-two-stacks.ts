@@ -6,12 +6,19 @@ class Queue {
     private stackB: Stack = new Stack();
 
     enqueue(item: number) {
-
+        this.stackA.push(item);
     }
 
     deque(): number {
-
-        return null;
+        if (this.stackB.size() === 0) {
+            if (this.stackA.size() === 0) {
+                return undefined;
+            }
+            while (this.stackA.size() > 0) {
+                this.stackB.push(this.stackA.pop());
+            }
+        }
+        return this.stackB.pop();
     }
 }
 
