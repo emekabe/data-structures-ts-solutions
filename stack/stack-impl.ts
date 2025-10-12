@@ -1,4 +1,4 @@
-class Stack {
+export class Stack {
 
     private stack: number[] = [];
 
@@ -26,11 +26,14 @@ class Stack {
 
 }
 
-const myStack = new Stack();
+function testStack(){
+    const myStack = new Stack();
 
-myStack.push(4);
-myStack.push(2);
-myStack.push(7);
-myStack.push(6);
+    myStack.push(4);
+    myStack.push(2);
+    myStack.push(7);
+    myStack.push(6);
 
-console.log(myStack.peek());
+    console.log(myStack.peek());
+}
+
