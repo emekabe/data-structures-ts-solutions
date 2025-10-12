@@ -24,6 +24,7 @@ class MinStack {
         return this.stack[this.size() - 1];
     }
 
+    // O(n)
     min(): number {
         if (this.size() == 0) {
             return undefined;
