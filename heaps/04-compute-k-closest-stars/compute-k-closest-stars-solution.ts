@@ -13,7 +13,6 @@ function calculateDistance(a: Position): number {
     return Math.sqrt(Math.pow(a.x, 2) + Math.pow(a.y, 2) + Math.pow(a.z, 2));
 }
 
-
 function generateHeapObjectArray(stars: Position[]): HeapObject[] {
     return stars.map((star) => ({
         star: star,
@@ -103,24 +102,20 @@ const getClosestStars = (k: number, stars: Position[]): Position[] => {
 
     const maxHeap: MaxHeap = new MaxHeap();
 
+    // O(n*log(k))
     for (const heapObject of heapObjects) {
-        if (maxHeap.size() < k) {
-            maxHeap.add(heapObject);
-            continue;
-        }
+        maxHeap.add(heapObject);
 
-        if (maxHeap.getMax().distance > heapObject.distance) {
+        if (maxHeap.size() > k) {
             maxHeap.remove();
-            maxHeap.add(heapObject);
         }
     }
 
     return generatePositionArray(maxHeap);
 };
 
-
 console.log(
-    getClosestStars(3, [
+    getClosestStars(0, [
         { x: 4, y: 3, z: 0 },
         { x: 6, y: 8, z: 0 },
         { x: 4, y: 0, z: 3 },
