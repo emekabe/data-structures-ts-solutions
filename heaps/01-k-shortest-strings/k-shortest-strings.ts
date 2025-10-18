@@ -1,9 +1,17 @@
 class MaxHeap {
     private heap: string[] = [];
 
-    private getParentIndex(i: number): number { return Math.floor((i - 1) / 2); }
-    private getLeftChildIndex(i: number): number { return 2 * i + 1; }
-    private getRightChildIndex(i: number): number { return 2 * i + 2; }
+    private getParentIndex(i: number): number {
+        return Math.floor((i - 1) / 2);
+    }
+
+    private getLeftChildIndex(i: number): number {
+        return 2 * i + 1;
+    }
+
+    private getRightChildIndex(i: number): number {
+        return 2 * i + 2;
+    }
 
     private swap(i: number, j: number) {
         [this.heap[i], this.heap[j]] = [this.heap[j], this.heap[i]];
@@ -40,7 +48,7 @@ class MaxHeap {
         }
     }
 
-     getWords(): string[]{
+    getWords(): string[] {
         return this.heap;
     }
 
@@ -62,8 +70,7 @@ class MaxHeap {
 
 function computeKShortestStrings(k: number, words: string[]): string[] {
     const maxHeap = new MaxHeap();
-    for(let i=0; i<words.length; i++)
-    {
+    for (let i = 0; i < words.length; i++) {
         maxHeap.add(words[i]);
 
         if (maxHeap.size() > k) {
@@ -74,5 +81,4 @@ function computeKShortestStrings(k: number, words: string[]): string[] {
 }
 
 
-
-console.log(computeKShortestStrings(3, ["do","a","apple", "ball", "cat", "dog", "elephant", "table", "cheese"]))
+console.log(computeKShortestStrings(3, ["do", "a", "apple", "ball", "cat", "dog", "elephant", "table", "cheese"]))
