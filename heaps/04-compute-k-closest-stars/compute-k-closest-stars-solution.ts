@@ -115,7 +115,7 @@ const getClosestStars = (k: number, stars: Position[]): Position[] => {
 };
 
 console.log(
-    getClosestStars(0, [
+    getClosestStars(3, [
         { x: 4, y: 3, z: 0 },
         { x: 6, y: 8, z: 0 },
         { x: 4, y: 0, z: 3 },
