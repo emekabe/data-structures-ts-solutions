@@ -24,7 +24,9 @@ export class Stack {
         return this.stack[this.size() - 1];
     }
 
-
+isEmpty(): boolean {
+        return this.size() === 0;
+    }
 
 }
 
